@@ -1,6 +1,6 @@
 # Teste para o projeto ES na Palma da mão
 
-O desafio é desenvolver um programa que permita realizar as seguintes buscas: 
+O desafio é desenvolver um aplicativo que permita realizar as seguintes buscas através de uma API: 
 1. Listar os **órgãos, códigos e editais dos concursos públicos** que encaixam no perfil do candidato tomando como base o **CPF** do candidato ; 
 2. Listar o **nome, data de nascimento e o CPF** dos candidatos que se encaixam no perfil do concurso tomando com base o **Código do Concurso** do concurso público;
 
@@ -20,16 +20,15 @@ O arquivo **concursos.txt** contém as informações dos concursos públicos:
 | SEJUS | 15/2017  |  61828450843  |  [carpinteiro,professor de matemática,assistente administrativo] |
 | SEJUS | 17/2017 |  95655123539  |  [professor de matemática] |
 
-**Escolha as tecnologias que você vai usar e tente montar uma solução completa para rodar a aplicação**.
+**Tente montar uma solução completa para rodar a aplicação**.
 
-Para enviar o resultado, basta realiazar um **Fork** deste repositório e **abra um Pull Request**, **com seu nome e o número de inscrição**.  
+Para enviar o resultado, basta realiazar um **Fork** deste repositório e **abra um Pull Request**, **com seu nome e o  número da matrícula**.  
 
 **É importante comentar que deve ser enviado apenas o código fonte. Não aceitaremos códigos compilados**.
 
 Por fim, o candidato deve atualizar o Readme.md com as seguintes informações: 
 1. Documentação da solução;
 2. Lista dos diferenciais implementados
-3. Link do projeto no [WakaTime](https://wakatime.com/). Veja um [exemplo](https://wakatime.com/@b142ebdf-4d65-4b92-bc14-567db7b72151/projects/zrxbwdmhtu?start=2018-01-25&end=2018-01-31).  
 
 ## Avaliação
 
