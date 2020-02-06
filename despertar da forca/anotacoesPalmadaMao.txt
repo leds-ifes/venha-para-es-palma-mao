@@ -14,4 +14,4 @@ providers implementa as regras de negocio
 
 CSV INPUT 
 
-
+abilitar cors na api 
