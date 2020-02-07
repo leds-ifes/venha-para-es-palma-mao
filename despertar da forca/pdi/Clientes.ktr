@@ -519,7 +519,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>C:\Users\vinic\OneDrive\Documentos\palma da mao\ClientesAtualizado.txt</filename>
+    <filename>C:\Users\vinic\OneDrive\Documentos\GitHub\venha-para-es-palma-mao\despertar da forca\pdi\ClientesAtualizado.txt</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -740,7 +740,7 @@
       </field>
     </fields>
     <ConcatFields>
-      <targetFieldName>texto</targetFieldName>
+      <targetFieldName>produtos</targetFieldName>
       <targetFieldLength>0</targetFieldLength>
       <removeSelectedFields>N</removeSelectedFields>
     </ConcatFields>
@@ -771,7 +771,7 @@
     </partitioning>
     <fields>
       <field>
-        <in_stream_name>texto</in_stream_name>
+        <in_stream_name>produtos</in_stream_name>
         <out_stream_name/>
         <use_regex>no</use_regex>
         <replace_string>[</replace_string>
@@ -783,7 +783,7 @@
         <is_unicode>no</is_unicode>
       </field>
       <field>
-        <in_stream_name>texto</in_stream_name>
+        <in_stream_name>produtos</in_stream_name>
         <out_stream_name/>
         <use_regex>no</use_regex>
         <replace_string>, ,</replace_string>
@@ -795,7 +795,7 @@
         <is_unicode>no</is_unicode>
       </field>
       <field>
-        <in_stream_name>texto</in_stream_name>
+        <in_stream_name>produtos</in_stream_name>
         <out_stream_name/>
         <use_regex>no</use_regex>
         <replace_string>],</replace_string>
@@ -807,7 +807,7 @@
         <is_unicode>no</is_unicode>
       </field>
       <field>
-        <in_stream_name>texto</in_stream_name>
+        <in_stream_name>produtos</in_stream_name>
         <out_stream_name/>
         <use_regex>no</use_regex>
         <replace_string>]</replace_string>
@@ -923,8 +923,8 @@
         <stream_name>estado</stream_name>
       </field>
       <field>
-        <column_name>texto</column_name>
-        <stream_name>texto</stream_name>
+        <column_name>produtos</column_name>
+        <stream_name>produtos</stream_name>
       </field>
     </fields>
     <attributes/>

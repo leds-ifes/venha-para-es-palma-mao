@@ -5,15 +5,15 @@ export const databaseProviders = [
     provide: 'DATABASE_CONNECTION',
     useFactory: async () => await createConnection({
       type: 'postgres',
-      host: 'tuffi.db.elephantsql.com',
+      host: 'motty.db.elephantsql.com',
       port: 5432,
-      username: '',
-      password: '',
-      database: '',
+      username: 'wljyrlgt',
+      password: 'tnUZwV2qY3-iKdSajEwxT31ENJsY9mcn',
+      database: 'wljyrlgt',
       entities: [
           __dirname + '/../**/*.entity{.ts,.js}',
       ],
-      synchronize: true,
+      synchronize: false,
     }),
   },
 ];
