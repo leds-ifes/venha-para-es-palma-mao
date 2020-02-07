@@ -504,7 +504,7 @@
         <currency>R$</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>28</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -515,7 +515,7 @@
         <currency>R$</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>99</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -635,7 +635,7 @@
     <tablename_in_field>N</tablename_in_field>
     <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
+    <return_keys>Y</return_keys>
     <return_field>id</return_field>
     <fields>
       <field>
