@@ -10,7 +10,6 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  
   // @Get('/soma/:valor1/:valor2')
   // soma(@Param() params ): number {
   //   let valor1 = parseInt(params.valor1)

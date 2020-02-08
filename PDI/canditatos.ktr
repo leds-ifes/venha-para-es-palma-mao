@@ -457,11 +457,6 @@
   </connection>
   <order>
     <hop>
-      <from>CSV file input 2</from>
-      <to>replace profissoes 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>replace profissoes 2</from>
       <to>Split fields</to>
       <enabled>Y</enabled>
@@ -496,6 +491,11 @@
       <to>Table output 2</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>CSV file input 2</from>
+      <to>replace profissoes 2</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>CSV file input 2</name>
@@ -508,14 +508,14 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>/home/leds/Documentos/venha-para-es-palma-mao-master/candidatos.txt</filename>
+    <filename>${Internal.Entry.Current.Directory}/candidatosLOW.txt</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
     <separator>[</separator>
     <enclosure/>
     <header>N</header>
-    <buffer_size>50000</buffer_size>
+    <buffer_size>10</buffer_size>
     <lazy_conversion>Y</lazy_conversion>
     <add_filename_result>N</add_filename_result>
     <parallel>N</parallel>
@@ -530,9 +530,9 @@
         <currency>R$</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>47</length>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>profissoes</name>
@@ -541,9 +541,9 @@
         <currency>R$</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>105</length>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
     </fields>
     <attributes/>
@@ -555,14 +555,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
+      <xloc>64</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>replace profissoes 2</name>
-    <type>ReplaceString</type>
+    <name>If field value is null</name>
+    <type>IfNull</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -571,30 +571,19 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
     <fields>
       <field>
-        <in_stream_name>profissoes</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>], </replace_string>
-        <replace_by_string/>
+        <name>field5</name>
+        <value>#404</value>
+        <mask/>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>profissoes</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>]</replace_string>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
       </field>
     </fields>
     <attributes/>
@@ -606,7 +595,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>256</xloc>
+      <xloc>496</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -717,8 +706,8 @@
     </GUI>
   </step>
   <step>
-    <name>field5 is #404</name>
-    <type>FilterRows</type>
+    <name>Table output</name>
+    <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -727,63 +716,39 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>concat f1,2</send_true_to>
-    <send_false_to>concat f1,2,3</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>field5</leftvalue>
-        <function>=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>#404</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask/>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>If field value is null</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <replaceAllByValue/>
-    <replaceAllMask/>
-    <selectFields>Y</selectFields>
-    <selectValuesType>N</selectValuesType>
-    <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
+    <connection>Elephant</connection>
+    <schema/>
+    <table>candidatos</table>
+    <commit>10</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>Y</return_keys>
+    <return_field>id</return_field>
     <fields>
       <field>
-        <name>field5</name>
-        <value>#404</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
+        <column_name>nome</column_name>
+        <stream_name>Nome completo</stream_name>
+      </field>
+      <field>
+        <column_name>data_nasc</column_name>
+        <stream_name>field3</stream_name>
+      </field>
+      <field>
+        <column_name>cpf</column_name>
+        <stream_name>field4</stream_name>
+      </field>
+      <field>
+        <column_name>profissoes</column_name>
+        <stream_name>profissoes</stream_name>
       </field>
     </fields>
     <attributes/>
@@ -795,8 +760,154 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>288</yloc>
+      <xloc>848</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Table output 2</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Elephant</connection>
+    <schema/>
+    <table>candidatos</table>
+    <commit>10</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>Y</return_keys>
+    <return_field>id</return_field>
+    <fields>
+      <field>
+        <column_name>nome</column_name>
+        <stream_name>Nome completo</stream_name>
+      </field>
+      <field>
+        <column_name>data_nasc</column_name>
+        <stream_name>field4</stream_name>
+      </field>
+      <field>
+        <column_name>cpf</column_name>
+        <stream_name>field5</stream_name>
+      </field>
+      <field>
+        <column_name>profissoes</column_name>
+        <stream_name>profissoes</stream_name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>848</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>concat f1,2</name>
+    <type>ConcatFields</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator> </separator>
+    <enclosure/>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name/>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>field1</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>field2</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <ConcatFields>
+      <targetFieldName>Nome completo</targetFieldName>
+      <targetFieldLength>0</targetFieldLength>
+      <removeSelectedFields>Y</removeSelectedFields>
+    </ConcatFields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>720</xloc>
+      <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -825,7 +936,7 @@
     <fileNameField/>
     <create_parent_folder>Y</create_parent_folder>
     <file>
-      <name>file</name>
+      <name/>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>
@@ -881,7 +992,7 @@
     </fields>
     <ConcatFields>
       <targetFieldName>Nome completo</targetFieldName>
-      <targetFieldLength>100</targetFieldLength>
+      <targetFieldLength>0</targetFieldLength>
       <removeSelectedFields>Y</removeSelectedFields>
     </ConcatFields>
     <attributes/>
@@ -899,8 +1010,8 @@
     </GUI>
   </step>
   <step>
-    <name>concat f1,2</name>
-    <type>ConcatFields</type>
+    <name>field5 is #404</name>
+    <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -909,67 +1020,25 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <separator> </separator>
-    <enclosure/>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>N</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>file</name>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
-    <fields>
-      <field>
-        <name>field1</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>field2</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-    <ConcatFields>
-      <targetFieldName>Nome completo</targetFieldName>
-      <targetFieldLength>100</targetFieldLength>
-      <removeSelectedFields>Y</removeSelectedFields>
-    </ConcatFields>
+    <send_true_to>concat f1,2</send_true_to>
+    <send_false_to>concat f1,2,3</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>field5</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>#404</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask/>
+        </value>
+      </condition>
+    </compare>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -979,14 +1048,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>720</xloc>
-      <yloc>352</yloc>
+      <xloc>608</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Table output</name>
-    <type>TableOutput</type>
+    <name>replace profissoes 2</name>
+    <type>ReplaceString</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -995,39 +1064,30 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>Elephant</connection>
-    <schema/>
-    <table>canditatos</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>N</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>Y</return_keys>
-    <return_field>id</return_field>
     <fields>
       <field>
-        <column_name>Nome completo</column_name>
-        <stream_name>Nome completo</stream_name>
+        <in_stream_name>profissoes</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>], </replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+        <is_unicode>no</is_unicode>
       </field>
       <field>
-        <column_name>data_nasc</column_name>
-        <stream_name>field3</stream_name>
-      </field>
-      <field>
-        <column_name>CPF</column_name>
-        <stream_name>field4</stream_name>
-      </field>
-      <field>
-        <column_name>profissoes</column_name>
-        <stream_name>profissoes</stream_name>
+        <in_stream_name>profissoes</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>]</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+        <is_unicode>no</is_unicode>
       </field>
     </fields>
     <attributes/>
@@ -1039,68 +1099,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>848</xloc>
-      <yloc>352</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Table output 2</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Elephant</connection>
-    <schema/>
-    <table>canditatos</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>N</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>Y</return_keys>
-    <return_field>id</return_field>
-    <fields>
-      <field>
-        <column_name>Nome completo</column_name>
-        <stream_name>Nome completo</stream_name>
-      </field>
-      <field>
-        <column_name>data_nasc</column_name>
-        <stream_name>field4</stream_name>
-      </field>
-      <field>
-        <column_name>CPF</column_name>
-        <stream_name>field5</stream_name>
-      </field>
-      <field>
-        <column_name>profissoes</column_name>
-        <stream_name>profissoes</stream_name>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>848</xloc>
-      <yloc>224</yloc>
+      <xloc>256</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

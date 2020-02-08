@@ -10,4 +10,9 @@ export class CandidatoController {
   readAll():any {
     return this.candidatoService.findAll();
   }
+
+  @Get(':id')
+  readOne(@Param('id') id):any {
+    return this.candidatoService.findOne(id)
+  }
 }

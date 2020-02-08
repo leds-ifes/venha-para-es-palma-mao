@@ -13,4 +13,30 @@ export class CandidatoService {
       console.log(await this.candidatoRepository.find())
     return this.candidatoRepository.find();
   }
+
+
+  async findOne(id): Promise<candidatos> {
+    return this.candidatoRepository.findOne({ id: id });
+  }
+
+  // async findWhere(produtos) {
+  //   console.log();
+  //   return this.candidatoRepository
+  //     .createQueryBuilder('cliente')
+  //     .select('produtos')
+  //     .where('cliente.produtos ilike :produtos', { produtos: `%${produtos}%` })
+  //     .getRawMany();
+  // }
+
+  // async findOnlyColumn(id) {
+  //   let retornoProduto = await this.candidatoRepository
+  //     .createQueryBuilder()
+  //     .select('produtos')
+  //     .where({ id: id })
+  //     .getRawOne();
+  //   let listaProdutos = retornoProduto.produtos.split(',').map(tech => tech.trim())
+  //   console.log(listaProdutos[0])
+  //   return listaProdutos
+  // }
+
 }
