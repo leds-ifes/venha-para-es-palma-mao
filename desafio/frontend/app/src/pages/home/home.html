@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      ES Palma da Mão
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div class="ion-padding">
+  <ion-input placeholder="CPF ou código do concurso" [(ngModel)]="input" type="text"></ion-input>
+  <button ion-button (click)="getCpf(input)" >filtrar por cpf</button>
+  <button ion-button (click)="getCodConcurso(input)" >filtrar pelo código do concurso</button>
+  </div>
+  
+</ion-content>
