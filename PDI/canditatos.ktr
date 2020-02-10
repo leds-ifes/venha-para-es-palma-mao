@@ -508,7 +508,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>${Internal.Entry.Current.Directory}/candidatosLOW.txt</filename>
+    <filename>${Internal.Entry.Current.Directory}/candidatos.txt</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
