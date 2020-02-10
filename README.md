@@ -22,10 +22,9 @@ se encaixam.
 
 
 ## rodar a aplicação
-### No diretório do backend (desafio/backend/es-palma-da-mão) execute o comando: nest start 
-### No diretório do frontend (desafio/frontend/app) execute o comando: ionic serve
-### a aplicação por padrão roda no localhost:8100
+- No diretório do backend (desafio/backend/es-palma-da-mão) execute o comando: nest start 
+- No diretório do frontend (desafio/frontend/app) execute o comando: ionic serve
 
 ## Diferenciais 
-banco de dados
-tecnologia escolhida
+- banco de dados
+ - tecnologia escolhida
