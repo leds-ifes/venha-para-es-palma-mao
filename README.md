@@ -1,3 +1,37 @@
+# TESTE PARA PRODEST 2020
+### Introdução
+Neste repositório possui uma solução parcial da avaliação do processo seletivo do projeto "ES na palma da mão". Foi utilizado os sistemas em que foi abordado no curso semanal oferecido pelo LEDs
+
+### Tecnologias utilizadas
+
+As tecnologias usadas para a elaboração da solução foram todas indicadas pela propria PRODEST durante o curso semanal.
+- Persistencia de dados: ElephantSQL, um banco de dados Postgres online e gratuito. Com auxilio do Pentaho Data Integration para sua população
+- Back-end: NodeJs
+- Front-end: [não implementada] - IONIC
+
+Majotariamente foi-se utilizado o Linux Mint, porem foi testado tambem no Windows 10.
+Para a instalação dos componentes necessarios basta seguir os slides oferecidos pelos tutores do curso semanal da PRODEST. Disponibilizados neste [link](https://drive.google.com/drive/folders/1XESS-GzG01kub4-zqMCds5pORJHgCmn6) 
+### Realizado
+Iniciei o projeto com a ideia de querer elaborar a solução utilizando-se apenas dos sistemas oferecidos pelo curso. O [repositorio](https://github.com/leds-ifes/despertar-da-forca-backend) do Leds-ifes foi utilizado para servir como base para a solução do teste.
+Utilizando-se ja dos padrões definidos pelo repositorio o back-end foi moldado para a solução do teste.
+
+Os requests implementados foram:
+- http://localhost:3000/candidato/aptos/ [inserir: codigo do curso]
+- http://localhost:3000/concursos/edital/ [inserir: cpf]
+
+Cujo realizam as soluções propostos do desafio:
+
+1. Listar os **órgãos, códigos e editais dos concursos públicos** que encaixam no perfil do candidato tomando como base o **CPF** do candidato ; 
+2. Listar o **nome, data de nascimento e o CPF** dos candidatos que se encaixam no perfil do concurso tomando com base o **Código do Concurso** do concurso público;
+
+É necessario executar a API para que retorne o Json corretamente. Para isso vá na pasta raiz 'es-palma-mao/backend' e execute o comando no terminal:
+> npm run start
+
+Para a parte da persistencia. Consegui elaborar sem a necessidade do tratamento dos arquivos .txt, utilizando-se apenas do 'Pentaho Data Integration' uma transformação para cada .txt que realiza a população dos dados no banco. Tais transformações, juntamente com os .txt se encontram na pasta PDI, juntamente com a versão LOW do candidato para a realização rapida de testes.
+
+A parte do front-end infelizmente não esta concluida. Estava a ser construida utilizando-se do framework da IONIC no diretorio 'mobileapp'.
+
+- ------------------------------------------------------------------------ -
 # Teste para o projeto ES na Palma da mão
 
 O desafio é desenvolver um aplicativo que permita realizar as seguintes buscas através de uma API: 
