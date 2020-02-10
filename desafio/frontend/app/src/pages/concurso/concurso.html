@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title type="small" >Candidatos compatíveis</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <body ng-controller="MyCtrl as ctrl">
+        <ion-header class="bar-stable">
+        </ion-header>
+
+        <ion-content>
+            <div class="row header">
+                <div class="col">Nome</div>
+                <div class="col">Data de nascimento</div>
+                <div class="col">cpf</div>
+            </div>
+            <div class="row" *ngFor="let data of lstCandidatos">
+                <div class="col">{{data.nome}}</div>
+                <div class="col">{{data.data_de_nascimento | date:'dd:MM:yyyy'}}</div>
+                <div class="col">{{data.cpf}}</div>
+            </div>
+        </ion-content>
+    </body>
+
+</ion-content>

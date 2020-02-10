@@ -1,3 +1,4 @@
+
 import { Module } from '@nestjs/common';
 import { databaseProviders } from 'src/database/database.providers';
 import { ConcursoController } from './control/concurso.controller';

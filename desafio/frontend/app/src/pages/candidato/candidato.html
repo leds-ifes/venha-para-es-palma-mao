@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Concursos compatíveis</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <body ng-controller="MyCtrl as ctrl">
+    <ion-header class="bar-stable">
+    </ion-header>
+    
+    <ion-content>
+        <div class="row header">
+          <div class="col">Orgão</div>
+          <div class="col">Código do concurso</div>
+          <div class="col">Edital</div>
+        </div>
+        <div class="row" *ngFor="let data of lstConcursos">
+          <div class="col">{{data.orgao}}</div>
+          <div class="col">{{data.codigo_do_concurso}}</div>
+          <div class="col">{{data.edital}}</div>
+        </div>
+    </ion-content>
+  </body>
+  
+</ion-content>
+
+
