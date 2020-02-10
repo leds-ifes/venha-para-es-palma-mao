@@ -1,8 +1,0 @@
-Maria, 30/08/1989, 123.456.789-90, Serra, ES, [blusa, Camisa, Tenis, Salto alto]
-João, 07/05/1993, 122.256.739-70, São Paulo, SP, [Bermuda, blusa, Sapato Social]
-Lucas, 30/03/1999, 143.476.739-40, Vitória, ES, [Toalha, Pão, Presunto]
-Magno, 29/08/1989, 153.656.549-10, Cariacica, ES, [Camisa, Tenis, Presunto]
-Helen, 30/01/2000, 323.876.369-40, Vila Velha, ES, [Mussarela, Presunto]
-Marcos, 20/03/1992, 623.386.459-60, Rio de Janeiro, RJ, [Meia, Sabonete, Pão]
-Obadias, 13/12/1996, 325.469.946-30, Serra, ES, [Condicionador, Jogo de cama]
-Maria Lúcia, 06/09/2002, 893.564.673-20, Recife, PE, [Shampoo, Camisa]

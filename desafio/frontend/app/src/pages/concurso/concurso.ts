@@ -1,4 +1,4 @@
-import { Component, Pipe } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController} from 'ionic-angular';
 import { HttpProvider } from './../../providers/http/http';
 

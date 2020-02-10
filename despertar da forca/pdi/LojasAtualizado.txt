@@ -1,5 +1,0 @@
-Americanas, 67.890.117/0001-69, Sao Paulo, SP, [shampoo, blusa, condicionador, sabonete]
-Seu Joaquin, 93.720.017/0001-02, Serra, ES, [Pao, Presunto, Mussarela]
-Los Netos, 42.064.356/0001-39, Cariacica, ES, [Salto alto, Meia, Tenis]
-Pernabucanas, 12.989.731/0001-90, Recife, PE, [Toalha, Jogo de cama, Bermuda, Camisa]
-
