@@ -10,7 +10,7 @@ As tecnologias usadas para a elaboração da solução foram todas indicadas pel
 - Front-end: [não implementada] - IONIC
 
 Majotariamente foi-se utilizado o Linux Mint, porem foi testado tambem no Windows 10.
-Para a instalação dos componentes necessarios basta seguir os slides oferecidos pelos tutores do curso semanal da PRODEST. Disponibilizados neste [link](abre.ai/drivepublico) 
+Para a instalação dos componentes necessarios basta seguir os slides oferecidos pelos tutores do curso semanal da PRODEST. Disponibilizados neste [link](https://drive.google.com/drive/folders/1XESS-GzG01kub4-zqMCds5pORJHgCmn6) 
 ### Realizado
 Iniciei o projeto com a ideia de querer elaborar a solução utilizando-se apenas dos sistemas oferecidos pelo curso. O [repositorio](https://github.com/leds-ifes/despertar-da-forca-backend) do Leds-ifes foi utilizado para servir como base para a solução do teste.
 Utilizando-se ja dos padrões definidos pelo repositorio o back-end foi moldado para a solução do teste.
