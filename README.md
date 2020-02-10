@@ -1,11 +1,11 @@
 # TESTE PARA PRODEST 2020
 ### Introdução
-Neste repositório possui uma solução parcial da avaliação do processo seletivo do projeto "ES na palma da mão". Foi utilizado os sistemas em que foi abordado no curso semanal oferecido pelo LEDs sendo eles: NestJs e PDI
+Neste repositório possui uma solução parcial da avaliação do processo seletivo do projeto "ES na palma da mão". Foi utilizado os sistemas em que foi abordado no curso semanal oferecido pelo LEDs
 
 ### Tecnologias utilizadas
 
 As tecnologias usadas para a elaboração da solução foram todas indicadas pela propria PRODEST durante o curso semanal.
-- Persistencia de dados: ElephantSQL, um banco de dados Postgres online e gratuito.
+- Persistencia de dados: ElephantSQL, um banco de dados Postgres online e gratuito. Com auxilio do Pentaho Data Integration para sua população
 - Back-end: NodeJs
 - Front-end: [não implementada] - IONIC
 
