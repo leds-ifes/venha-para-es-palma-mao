@@ -19,24 +19,29 @@ export class CandidatoService {
     return this.candidatoRepository.findOne({ id: id });
   }
 
-  // async findWhere(produtos) {
-  //   console.log();
-  //   return this.candidatoRepository
-  //     .createQueryBuilder('cliente')
-  //     .select('produtos')
-  //     .where('cliente.produtos ilike :produtos', { produtos: `%${produtos}%` })
-  //     .getRawMany();
-  // }
+  async findWhere(profissao) {
+    console.log();
+    return this.candidatoRepository
+      .createQueryBuilder('candidatos')
+      .select('candidatos')
+      .where('candidatos.profissoes ilike :profissao', { profissao: `%${profissao}%` })
+      .getRawMany();
+  }
 
-  // async findOnlyColumn(id) {
-  //   let retornoProduto = await this.candidatoRepository
-  //     .createQueryBuilder()
-  //     .select('produtos')
-  //     .where({ id: id })
-  //     .getRawOne();
-  //   let listaProdutos = retornoProduto.produtos.split(',').map(tech => tech.trim())
-  //   console.log(listaProdutos[0])
-  //   return listaProdutos
-  // }
+  async findAptos(codigo_do_curso){
+    console.log();
+    return this.candidatoRepository
+    .createQueryBuilder('candidatos')
+    .select('candidatos.nome, candidatos.data_nasc, candidatos.cpf')
+    .innerJoin('concursos', 'concursos', '(candidatos.profissoes = concursos.vagas)')
+    .where('concursos.codigo_do_curso = :codigo_do_curso', { codigo_do_curso: `${codigo_do_curso}` })
+    .getRawMany();    
+  }
+
+  // so da certo se o edital tiver o mesmo nome da vaga e da profissão (não dei split ou normalizei)
+
+  // SELECT candidatos.nome, candidatos.data_nasc, candidatos.cpf FROM candidatos
+  // INNER JOIN concursos ON candidatos.profissoes = concursos.vagas
+  // WHERE concursos.codigo_do_curso = '10166314303'
 
 }

@@ -10,4 +10,9 @@ export class ConcursosController {
   readAll():any {
     return this.concursosService.findAll();
   }
+
+  @Get('/edital/:cpf')
+  readWhere(@Param('cpf') cpf):any {
+    return this.concursosService.findEdital(cpf)
+  }
 }

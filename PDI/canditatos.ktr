@@ -515,7 +515,7 @@
     <separator>[</separator>
     <enclosure/>
     <header>N</header>
-    <buffer_size>10</buffer_size>
+    <buffer_size>5000</buffer_size>
     <lazy_conversion>Y</lazy_conversion>
     <add_filename_result>N</add_filename_result>
     <parallel>N</parallel>

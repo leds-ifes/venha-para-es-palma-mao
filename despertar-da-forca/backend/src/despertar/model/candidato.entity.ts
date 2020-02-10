@@ -9,7 +9,7 @@ export class candidatos{
     nome: string
 
     @Column({nullable:true})
-    data_nasc: Date
+    data_nasc: string
 
     @Column({nullable:true})
     cpf: string

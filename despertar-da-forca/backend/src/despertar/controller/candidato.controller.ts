@@ -15,4 +15,14 @@ export class CandidatoController {
   readOne(@Param('id') id):any {
     return this.candidatoService.findOne(id)
   }
+
+  @Get('/profissao/:prof')
+  readWhere(@Param('prof') prof):any {
+    return this.candidatoService.findWhere(prof)
+  }
+
+  @Get('/aptos/:codigo_do_curso')
+  readWhere2(@Param('codigo_do_curso') codigo_do_curso):any {
+    return this.candidatoService.findAptos(codigo_do_curso)
+  }
 }
